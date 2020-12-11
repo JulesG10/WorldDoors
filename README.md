@@ -16,4 +16,4 @@ build.cmd
 
 > Licence
 
-[MIT](http)
+[MIT](https://github.com/JulesG10/WorldDoors/blob/master/LICENCE)
