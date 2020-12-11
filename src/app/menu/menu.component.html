@@ -1,0 +1,133 @@
+<nz-layout>
+    <nz-sider nzCollapsible nzWidth="200px">
+      <div class="logo" (click)="changeStatus()">
+        <i nz-icon nzType="{{StatusFace}}" nzTheme="outline"></i>
+      </div>
+      <ul nz-menu nzTheme="dark" nzMode="inline">
+        <li nz-submenu nzTitle="Mon compte" nzIcon="user">
+          <ul>
+            <li nz-menu-item (click)="go('Historique','hist')"><i nz-icon nzType="history" nzTheme="outline"></i> Historique</li>
+            <li nz-menu-item (click)="nav('user')"><i nz-icon nzType="usergroup-add" nzTheme="outline"></i> Rechercher</li>
+            <li nz-menu-item (click)="go('Paramètres','setting')"><i nz-icon nzType="setting" nzTheme="outline"></i> Paramètres</li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Le Monde" nzIcon="global">
+          <ul>
+            <!-- <li nz-menu-item><i nz-icon nzType="inbox" nzTheme="outline"></i> Boite</li> -->
+            <li nz-menu-item (click)="go('Message','message')"><i nz-icon nzType="message" nzTheme="outline"></i> Message</li>
+            <!-- <li nz-menu-item><i nz-icon nzType="lock" nzTheme="outline"></i> Privé</li> -->
+            <li nz-menu-item (click)="go('Rechercher','post')"><i nz-icon nzType="search" nzTheme="outline" ></i> Rechercher</li>
+          </ul>
+        </li>
+        <li nz-menu-item (click)="go('Menu','chose')">
+          <i nz-icon nzType="home"></i>
+          <span>Menu</span>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <ul nz-menu nzTheme="dark" nzMode="inline" class="mobile">
+          <li nz-submenu nzTitle="Mon compte" nzIcon="user">
+            <ul>
+              <li nz-menu-item (click)="go('Historique','hist')"><i nz-icon nzType="history" nzTheme="outline"></i> Historique</li>
+              <li nz-menu-item (click)="nav('user')"><i nz-icon nzType="usergroup-add" nzTheme="outline" ></i> Rechercher</li>
+              <li nz-menu-item (click)="go('Paramètres','setting')"><i nz-icon nzType="setting" nzTheme="outline" ></i> Paramètres</li>
+            </ul>
+          </li>
+          <li nz-submenu nzTitle="Le Monde" nzIcon="global">
+            <ul>
+              <!-- <li nz-menu-item><i nz-icon nzType="inbox" nzTheme="outline"></i> Boite</li> -->
+              <li nz-menu-item (click)="go('Message','message')"><i nz-icon nzType="message" nzTheme="outline" ></i> Message</li>
+              <!-- <li nz-menu-item><i nz-icon nzType="lock" nzTheme="outline"></i> Privé</li> -->
+              <li nz-menu-item (click)="go('Rechercher','post')"><i nz-icon nzType="search" nzTheme="outline" ></i> Rechercher</li>
+            </ul>
+          </li>
+          <li nz-menu-item (click)="go('Menu','chose')">
+            <i nz-icon nzType="home"></i>
+            <span>Menu</span>
+          </li>
+        </ul>
+      </nz-header>
+      <nz-content>
+        <nz-breadcrumb>
+          <nz-breadcrumb-item (click)="goBack()">{{ dir | titlecase }}</nz-breadcrumb-item>
+          <nz-breadcrumb-item>{{ Username }}</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <div class="inner-content">
+          <div class="setting" *ngIf="Option.setting">
+            <app-setting></app-setting>
+          </div>
+          <div class="message" *ngIf="Option.message">
+            <app-message [id]="Id"></app-message>
+          </div>
+          <div class="posts" *ngIf="Option.post">
+            <app-posts></app-posts>
+          </div>
+          <div class="hist" *ngIf="Option.hist">
+            <nz-table #data [nzData]="Co">
+              <thead>
+                <tr>
+                  <th>Prenom</th>
+                  <th>Date</th>
+                  <th>Id</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let info of data.data">
+                  <td>{{ info.name | titlecase }}</td>
+                  <td>{{ info.date }}</td>
+                  <td>{{ info.id }}</td>
+                </tr>
+              </tbody>
+            </nz-table>
+          </div>
+          <div class="chose" *ngIf="Option.chose">
+            <div class="nav-card" (click)="go('Message','message')">
+              <i nz-icon nzType="send" nzTheme="outline" class="icon"></i>
+              <p>Ajouter un nouveau post</p>
+              <i nz-icon nzType="right" nzTheme="outline" class="arrow"></i>
+            </div>
+            <!-- <div class="nav-card" (click)="go('Message','message')">
+              <i nz-icon nzType="upload" nzTheme="outline" class="icon"></i>
+              <p>Mettre en ligne une image</p>
+              <i nz-icon nzType="right" nzTheme="outline" class="arrow"></i>
+            </div> -->
+            <div class="nav-card" (click)="go('Paramètres','setting')">
+              <i nz-icon nzType="qrcode" nzTheme="outline" class="icon"></i>
+              <p>Paratager profile avec un QR code</p>
+              <i nz-icon nzType="right" nzTheme="outline" class="arrow"></i>
+            </div>
+            <div class="nav-card" (click)="go('Paramètres','setting')">
+              <i nz-icon nzType="setting" nzTheme="outline" class="icon"></i>
+              <p>Modifier vos paramètres</p>
+              <i nz-icon nzType="right" nzTheme="outline" class="arrow"></i>
+            </div>
+            <div class="users" *ngIf="Option.user">
+              <app-users></app-users> 
+            </div>
+          </div>
+          <!--
+              display:grid;
+              grid-template-columns: repeat(6, 1fr);
+              grid-gap: 0px 10px;
+              grid-auto-rows: max-content; 
+            <nz-button-group class="options">
+              <button nz-button nzType="default" class="like" (click)="Like(item.id)" [disabled]="item.hasOwnProperty('like')"><i nz-icon nzType="like" nzTheme="outline"></i></button>
+              <button nz-button nzType="default" class="dislike" (click)="DisLike(item.id)" ><i nz-icon nzType="dislike" nzTheme="outline"></i></button>
+              <button nz-button nzType="default" nz-dropdown [nzDropdownMenu]="menu"><i nz-icon nzType="more" nzTheme="outline"></i></button>
+              <nz-dropdown-menu #menu="nzDropdownMenu">
+                <ul nz-menu>
+                  <li nz-menu-item><i nz-icon nzType="warning" nzTheme="outline"></i> signaler</li>
+                  <li nz-menu-item><i nz-icon nzType="save" nzTheme="outline"></i> enregistrer</li>
+                  <li nz-menu-item><i nz-icon nzType="share-alt" nzTheme="outline"></i> partager</li>
+                </ul>
+              </nz-dropdown-menu>
+            </nz-button-group> -->
+
+        </div>
+        <br>
+      </nz-content>
+     
+    </nz-layout>
+  </nz-layout>

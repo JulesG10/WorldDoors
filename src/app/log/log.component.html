@@ -1,0 +1,31 @@
+<div class="container">
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <h2>Connexion WorldDoors</h2>
+        <nz-form-item>
+            <nz-form-control nzErrorTip="{{ TipUser }}">
+                <nz-input-group nzPrefixIcon="user">
+                    <input type="text" nz-input formControlName="userName" placeholder="Nom de compte" />
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control nzErrorTip="{{ TipPass }}">
+                <nz-input-group nzPrefixIcon="lock">
+                    <input type="password" nz-input formControlName="password" placeholder="Mot de passe" />
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <div nz-row class="login-form-margin">
+            <div nz-col [nzSpan]="12">
+                <label nz-checkbox formControlName="remember">
+                    <span>Memoriser mon compte</span>
+                </label>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <a class="login-form-forgot" *ngIf="!stop">Mot de passe oublier</a>
+            </div>
+        </div>
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" [disabled]="stop"><i *ngIf="!loading" class="logtxt">Valider</i><i nz-icon nzType="loading" nzTheme="outline" *ngIf="loading"></i></button>
+        Ou <a (click)="register()"> s'inscrire maintenant ! </a>
+    </form>
+</div>

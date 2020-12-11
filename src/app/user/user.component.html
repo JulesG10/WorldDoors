@@ -1,0 +1,34 @@
+<nz-layout>
+    <nz-header>
+        <div class="search" *ngIf="Search">
+            <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+                <input placeholder="Rechercher un utilisateur" nz-input (input)="onInput($event,inp.value)" [nzAutocomplete]="auto" #inp />
+                <nz-autocomplete [nzDataSource]="options" nzBackfill #auto></nz-autocomplete>
+            </nz-input-group>
+            <ng-template #suffixIconButton>
+                <button nz-button nzType="primary" nzSearch (click)="submit(inp.value)">
+                    <i nz-icon nzType="search" *ngIf="!Loading"></i>
+                    <i nz-icon nzType="loading" nzTheme="outline" *ngIf="Loading"></i>
+                </button>
+            </ng-template>
+        </div>
+    </nz-header>
+    <div class="user" *ngIf="!Search && Infos.fname !== undefined">
+        <div class="resize">
+            <img class="profileImage" [src]="Infos.image" (error)="onImgError($event)">
+        </div>
+        <nz-avatar
+        *ngIf="NoImage"
+        [nzGap]="4"
+        [nzText]="Infos.fname"
+        nzSize="large"
+        style="vertical-align: middle;"
+      ></nz-avatar>
+        <h3 class="name">{{ Infos.fname | titlecase }}</h3> 
+        <nz-tag class="tag" [nzColor]="Color" *ngIf="Infos.admin">admininstateur</nz-tag>
+        <nz-tag class="tag" [nzColor]="Color" *ngIf="!Infos.admin">utilisateur</nz-tag>
+        <p class="desc">
+            {{ Infos.description }}  
+        </p>
+    </div>
+</nz-layout>

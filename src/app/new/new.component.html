@@ -1,0 +1,23 @@
+<div class="container">
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <h2>Inscription WorldDoors</h2>
+        <nz-form-item>
+            <nz-form-control nzErrorTip="{{ErrorC}}">
+                <nz-input-group nzPrefixIcon="user">
+                    <input type="text" nz-input formControlName="userName" placeholder="Nom de compte" />
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control nzErrorTip="{{ErrorP}}">
+                <nz-input-group nzPrefixIcon="lock">
+                    <input type="password" nz-input formControlName="password" placeholder="Mot de passe" />
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <button nz-button class="login-form-button login-form-margin">
+            <i *ngIf="!loading" class="logtxt">Valider</i>
+            <i nz-icon nzType="loading" nzTheme="outline" *ngIf="loading"></i>
+        </button>
+    </form>
+</div>

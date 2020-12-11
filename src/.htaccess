@@ -1,0 +1,6 @@
+php_value display_errors 1
+RewriteEngine On
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^(.*) index.html [NC,L]

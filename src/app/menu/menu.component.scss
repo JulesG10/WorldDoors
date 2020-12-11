@@ -1,0 +1,148 @@
+.logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.card{
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 2Px 10px rgb(136, 136, 136);
+}
+
+nz-header {
+  background: #fff;
+  padding: 0;
+}
+
+nz-content {
+  margin: 0 16px;
+}
+
+nz-breadcrumb {
+  margin: 16px 0;
+}
+
+.inner-content {
+  padding: 24px;
+  background: #fff;
+  height: auto;
+}
+.nav-card{
+  cursor: pointer;
+  width: 100%;
+  border-radius: 10px;
+  height: 70px;
+  margin-top: 10px;
+  position: relative;
+  box-shadow: 0px 2px 10px rgb(231, 231, 231);
+  max-width: 600px;
+  transition: 0.2s;
+}
+nz-breadcrumb-item{
+  cursor: pointer;
+}
+
+.arrow{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  color:rgb(128, 128, 128);
+  transform: translateY(-50%) scale(1.3);
+}
+
+.icon{
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  color:rgb(128, 128, 128);
+  transform: translateY(-50%) scale(1.3);
+}
+
+.nav-card p{
+  position: absolute;
+  left: 80px;
+  top: 50%;
+  color:rgb(128, 128, 128);
+  transform: translateY(-50%);
+}
+
+.nav-card:hover{
+  box-shadow: 0px 4px 15px rgb(214, 214, 214);
+}
+
+nz-layout:nth-child(1) {
+  height: 100%;
+}
+
+.mobile {
+  display: none;
+}
+
+nz-header {
+  z-index: 100;
+  display: block;
+}
+
+nz-sider {
+  user-select: none;
+}
+
+nz-card {
+    display: inline-block;
+    width: 300px;
+  margin: {
+      left: 10px;
+      top: 5px;
+  }
+}
+
+.img {
+  width: 100px;
+  margin: {
+    bottom: 10px;
+  }
+}
+
+.like:hover{
+    border-color: rgb(253, 42, 42);
+    color:rgb(253, 42, 42);
+    z-index: 10;
+}
+.options{
+    position: relative;
+    top: 10px;
+    left: 0px;
+}
+
+@media screen and (max-width: 600px) {
+  nz-sider {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+  .inner-content {
+    position: relative;
+    top: 100px;
+  }
+  nz-breadcrumb{
+    position: relative;
+    top: 100Px;
+  }
+}
+
+@media screen and (max-width:440px){
+  .nav-card p {
+    font-size: 12px;
+    width: 100px;
+  }
+  
+}

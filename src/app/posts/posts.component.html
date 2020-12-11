@@ -1,0 +1,19 @@
+<div class="search">
+    <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+        <input placeholder="Rechercher un post" nz-input (input)="onInput($event,inp.value)" [nzAutocomplete]="auto" #inp />
+        <nz-autocomplete [nzDataSource]="options" nzBackfill #auto></nz-autocomplete>
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+        <button nz-button nzType="primary" nzSearch (click)="submit(inp.value)">
+            <i nz-icon nzType="search" *ngIf="!Loading"></i>
+            <i nz-icon nzType="loading" nzTheme="outline" *ngIf="Loading"></i>
+        </button>
+    </ng-template>
+</div>
+<div class="list">
+    <div *ngFor="let it of CARD" class="card">
+        <h4>{{ it.title | titlecase }}</h4>
+        <i>écrit par {{it.author | titlecase }} le {{it.date | date:'d/m/Y'}}</i>
+        <p>{{it.content}}</p>
+    </div>
+</div>

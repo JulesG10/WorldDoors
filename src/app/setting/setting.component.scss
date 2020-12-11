@@ -1,0 +1,26 @@
+.password{
+    padding: 3px;
+    width: 260px;
+}
+.description{
+    width: 100%;
+}
+
+.QR{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 240px;
+    width: 100%;
+}
+
+
+
+@media screen and (min-width: 400px){
+    .QR{
+        width: 200Px;
+    }
+    .description{
+        width: 50%;
+    }
+}

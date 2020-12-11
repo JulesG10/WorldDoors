@@ -1,0 +1,22 @@
+.search{
+    max-width: 400Px;
+}
+
+.card{
+    padding: 9px;
+    box-shadow: 0px 4px 18px #efefef;
+    border-radius: 2px;
+    margin-top: 34px;
+    position: relative;
+    i{
+        font-style: normal;
+        color: #ccc;
+        position: absolute;
+        top: 9px;
+        right: 9px;
+        font-size: 11px;
+    }
+    p{
+        word-break: break-word;
+    }
+}

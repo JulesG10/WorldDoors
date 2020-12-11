@@ -1,0 +1,23 @@
+<div class="post">
+    <h3>Poster du pour aujourd'hui</h3>
+    <form nz-form class="login-form" [formGroup]="validateForm" (submit)="send()">
+        <nz-form-item>
+            <nz-form-control nzErrorTip="Votre titre est vide !">
+                <nz-input-group nzPrefixIcon="edit">
+                    <input type="text" nz-input formControlName="title" placeholder="Entrer votre titre" />
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control nzErrorTip="Votre contenue est vide !">
+                <textarea formControlName="content" nz-input placeholder="Entrer le contentue de votre post ici"></textarea>
+                <br />
+            </nz-form-control>
+        </nz-form-item>
+        
+        <br />
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">
+            Envoyer
+        </button>   
+    </form>
+</div>

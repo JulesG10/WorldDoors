@@ -1,0 +1,66 @@
+.search{
+    position: relative;
+    top: 50%;
+    transform: translateY(-25%);
+    left: 0px;
+    display: inline-block;
+    width: 260Px;
+}
+
+
+
+nz-layout {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+.user {
+    border-radius: 3px;
+    width: 80%;
+    height: auto;
+    padding: 10px;
+    position: relative;
+    left: 50%;
+    top:100px;
+    transform: translateX(-50%);
+   background: white;
+}
+
+.resize{
+    overflow: hidden;
+    position: relative;
+    border-radius:50%;
+    height: 40Px;
+    width: 40Px;
+    background: #001529;
+    border:2Px solid#001529;
+}
+
+.profileImage{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: 100%;
+}
+
+.name{
+    position: absolute;
+    top: 15px;
+    left: 60px;
+}
+
+.tag{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.desc {
+    margin-top: 10px;
+    color: rgb(153, 153, 153);
+    word-break: break-word;
+    text-align: start;
+    text-indent: 10px;
+}

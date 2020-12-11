@@ -1,0 +1,123 @@
+<h3>Votre QR Code d'ajout</h3>
+<div class="QR">
+  <ngx-qrcode
+    [elementType]="elementType"
+    [errorCorrectionLevel]="correctionLevel"
+    [value]="value"
+    cssClass="bshadow"
+  >
+  </ngx-qrcode>
+</div>
+<br />
+<!-- <div class="scanner">
+    <h3>Scanner</h3>
+    <button nz-button>Scanner un QR Code</button>
+</div> -->
+<br />
+<div class="description">
+  <h3>Changer de description</h3>
+  <form
+    nz-form
+    [formGroup]="descChange"
+    class="login-form"
+  >
+    <nz-form-control nzErrorTip="">
+      <textarea
+        nz-input
+        formControlName="desc"
+        placeholder="{{ oldDesc }}"
+      ></textarea>
+      <br />
+    </nz-form-control>
+    <br />
+    <button
+      nz-popconfirm
+      nzPopconfirmPlacement="top"
+      nzPopconfirmTitle="Confirmer le changement de description"
+      (nzOnConfirm)="confirmDesc()"
+      nz-button
+      class="login-form-button login-form-margin"
+      [nzType]="'primary'"
+    >
+      Modifier
+    </button>
+  </form>
+</div>
+<br />
+<div class="password">
+  <h3>Changer de mot de passe</h3>
+  <form
+    nz-form
+    [formGroup]="passwordChange"
+    class="login-form"
+  >
+    <nz-form-item>
+      <nz-form-control nzErrorTip="{{Error}}">
+        <nz-input-group nzPrefixIcon="lock">
+          <input
+            type="password"
+            nz-input
+            formControlName="oldpassword"
+            placeholder="Nouveau mot de passe"
+          />
+          <br />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <br>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="{{Error}}">
+        <nz-input-group nzPrefixIcon="lock">
+          <input
+            type="password"
+            nz-input
+            formControlName="password"
+            placeholder="Confirmer nouveau mot de passe"
+          />
+          <br />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <br />
+    <button
+      nz-popconfirm
+      nzPopconfirmPlacement="top"
+      nzPopconfirmTitle="Confirmer le changement de mot de passe"
+      (nzOnConfirm)="confirmPass()"
+      (nzOnCancel)="cancel()"
+      nz-button
+      class="login-form-button login-form-margin"
+      [nzType]="'primary'"
+    >
+      Modifier
+    </button>
+  </form>
+</div>
+<br />
+<div class="delet">
+  <h3>Supprimer mon compte</h3>
+  <p>
+    <i
+      nz-icon
+      style="color: rgb(243, 51, 51)"
+      nzType="warning"
+      nzTheme="outline"
+    ></i>
+    Attention cette action est ireversible, après avoir confirmer le pop-up de
+    supprission, votre compte sera supprimé et irrécupérable.
+  </p>
+  <button
+    nz-popconfirm
+    nzPopconfirmPlacement="top"
+    nzPopconfirmTitle="Confirmer la suppresion de votre compte WorldDoors ?"
+    (nzOnConfirm)="confirmDel()"
+    (nzOnCancel)="cancel()"
+    nz-button
+    class="login-form-button login-form-margin"
+    [nzType]="'text'"
+    nzDanger
+    nzIcon="warning"
+  >
+    Supprimer
+  </button>
+</div>
