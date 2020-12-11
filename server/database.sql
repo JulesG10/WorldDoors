@@ -88,7 +88,7 @@ CREATE TABLE `token` (
 
 CREATE TABLE `userinfo` (
   `user_id` int(11) NOT NULL,
-  `profile_image` int(11) NOT NULL,
+  `profile_image` text NOT NULL,
   `id` int(11) NOT NULL,
   `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
